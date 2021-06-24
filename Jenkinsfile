@@ -1,4 +1,4 @@
-node('nodes'){
+node ('node1') {
 
 def mavenHome = tool name: "maven3.6.3"
 properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5')), [$class: 'JobLocalConfiguration', changeReasonComment: '']])
@@ -10,7 +10,6 @@ git branch: 'development', credentialsId: '4337811d-0368-4314-a858-809d021f874b'
 stage('Build'){
 sh "${mavenHome}/bin/mvn clean package"
 }
-
 stage('ExecuteSonarQubeReport'){
 sh "${mavenHome}/bin/mvn sonar:sonar"
 }
