@@ -2,7 +2,7 @@ pipeline{
 
 //agent any
 agent{
-label 'node2'
+label ('node2')
 }
 triggers{
  pollSCM('* * * * *') //No need of properties all these only pollSCM is enough Hence removed.
