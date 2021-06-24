@@ -1,4 +1,4 @@
-node {
+node('nodes'){
 
 def mavenHome = tool name: "maven3.6.3"
 properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5')), [$class: 'JobLocalConfiguration', changeReasonComment: '']])
