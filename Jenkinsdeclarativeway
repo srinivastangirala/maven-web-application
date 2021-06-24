@@ -1,6 +1,9 @@
 pipeline {
 
-agent any
+//agent any
+agent{
+label 'node2'
+}
 triggers{
  pollSCM('* * * * *') //No need of properties all these only pollSCM is enough Hence removed.
 }
@@ -8,9 +11,11 @@ options{
 timestamps()
 buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5'))
 }
+/*
 tools{
 maven "maven3.6.3"
 }
+*/
 stages{
 
  stage('CheckoutCode'){
@@ -23,7 +28,8 @@ stages{
  sh "mvn clean package"
    }
    }
- stage('ExecuteSonarQubeReport'){
+/*
+stage('ExecuteSonarQubeReport'){
  steps{
  sh "mvn clean sonar:sonar"
    }
@@ -40,7 +46,7 @@ stages{
   }
   }
   }
-
+*/
 }
 
 post {
