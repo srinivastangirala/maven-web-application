@@ -1,4 +1,4 @@
-pipeline {
+pipeline{
 
 //agent any
 agent{
@@ -49,11 +49,12 @@ stage('ExecuteSonarQubeReport'){
 */
 }
 
-post {
+post{
  
  success{
  emailext body: 'Build Completed. - Success', subject: 'Build Completed. - Success', to: 'srinivas.tns7@gmail.com,vijju14nov@gmail.com'
- falure {
+ }
+ failure {
  emailext body: 'Build Completed. - Failure', subject: 'Build Completed. - Failure', to: 'srinivas.tns7@gmail.com,vijju14nov@gmail.com'
  }
  
